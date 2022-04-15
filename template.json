@@ -1,3 +1,18 @@
 {
-    "fe": "my frontend role"
+    "intro": "I am an engineer. I do the code.",
+    "scripting": [
+        "made covlet-gen, a tool to automate generating specialized cover letters.",
+        "made a script to automate my dev environment using tmux and [vscode, vim (any editor of choice)]"
+    ],
+    "end": "I hope you know I am an engineer. Looking forwards to working all your code",
+    "fe": {
+        "intro": "I like the front-end. I am an engineer. I have worked in all the javascripts",
+        "product": [
+            "made read-sync-pdf, a pdf reader web app using mozillas pdf.js that syncs your reading progress. Allowing you to read on any device."
+        ],
+        "complex": [
+            "worked on the performance and ux of a web app to allow it to scale and handle more than 2 million data rows."
+        ],
+        "end": "I hope you know I liked the front-end. Look forwards to working in all your javascripts"
+    }
 }
