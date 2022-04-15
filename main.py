@@ -22,10 +22,11 @@ def generate(keywords, template):
     if template.get('intro') is None or template.get('end') is None:
         print("intro/end key not found. Intro and End entries are required to generate your cover letter")
         return
-    intro = template['intro']
+    intro = template['intro'].strip('.') + '.'
+    desc = parse_format_keywords(template, ['desc']) 
     mid = parse_format_keywords(template, keywords)
-    end = template['end']
-    covlet_gen = intro + '\n' + mid + '\n' + end
+    end = template['end'].strip('.') + '.'
+    covlet_gen = intro + '\n' + desc + '\n' + mid + '\n' + end
     return covlet_gen
 
 def nested_generate(role, keywords, template):
@@ -59,6 +60,7 @@ if __name__ == '__main__':
     ^ This will use a top level template as follows:
     {
         intro: [],
+        desc: [],
         product: [],
         end: []
     }
@@ -68,6 +70,7 @@ if __name__ == '__main__':
     {
         fe: {
             intro: [],
+            desc: [],
             product: [],
             complex: [],
             end: []
@@ -86,7 +89,7 @@ if __name__ == '__main__':
         '--out', nargs=1, required=False, help='specify the output file name the generated pdf will use'
     )
     parser.add_argument(
-        '--company', nargs=1, required=False, help='specifies the company name to use to replace the @company variable in users'+\
+        '--company', nargs=1, required=False, help='specifies the company name to use to replace the @company variable in users '+\
         'template.json keyword entry'
     )
     parser.add_argument(

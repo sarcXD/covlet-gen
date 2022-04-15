@@ -1,23 +1,76 @@
 {
-    "intro": "Hi, As a seasoned Software Engineer with over 3 years of diverse engineering experience, I am applying for the @position position at @company",
-    "fe_product": [
-        "I have plenty of experience and expertise in building and hacking products",
-        "At Ricult, I built an analytics application on top of google maps to view more than 2 million farms across Pakistan and Thailand.",
-        "I also created a resource monitoring and maintainence dashboard that helped users observe and interact with their activity pipelines"
-    ],
-    "fe_perf": [
-        "I worked on the performance and ux of a time critical web app and made it scale and handle more than 2 million data rows",
-        "I fixed a feature that had to render more than 20000 farm images, bringing the fetching and rendering speed down to 4 seconds",
-        "I performed code analysis to identify and fix overlooked performance issues in our fetch services which were used in all our components."
-    ],
-    "fe_remote": [
-        "At Ricult, all our teams were distributed between multiple timezones and because of this I have developed strong communication skills."
-    ],
-    "fe_projects": [
-        "I heavily enjoy working on my own projects as well",
-        "I built readSyncPdf, a webapp that allows users to read pdfs and have their progress sync using mozillas pdf.js",
-        "I have also built a playlist sharing application written in react native that allowed me and my friends to share things with each other better",
-        "I worked on a chrome extension to customise and add a UI feature I wanted in my whatsapp web client"
-    ],
-    "end": "I hope you have a clear idea about my accomplishments and expertise. I would love to be able to, and am looking forwards to proceed with this opportunity at @company"
+    "fe": {
+        "intro": "Hi, As a seasoned Software Engineer with over 3 years of diverse engineering experience, I am applying for the @position position at @company",
+        "desc": [
+            "I am currently a software engineer at an agri-tech startup, Ricult",
+            "I enjoy working on interesting and challenging products because I want to improve the way the web works, especially for end users",
+            "I love creating new and interesting applications, maybe in the process improving them, playing around with new technologies, and continue my learning"],
+        "product": [
+            "I have plenty of experience and expertise in building and hacking products",
+            "At Ricult, I built an analytics application on top of google maps to view more than 2 million farms across Pakistan and Thailand.",
+            "I also created a resource monitoring and maintainence dashboard that helped our users with their process pipelines"
+        ],
+        "perf": [
+            "I worked on the performance and ux of a time critical web app and made it scale and handle more than 2 million data rows",
+            "I fixed a feature that had to render more than 20000 farm images, bringing the fetching and rendering speed down to 4 seconds",
+            "I performed code analysis to identify and fix overlooked performance issues in our fetch services which were used in all our components."
+        ],
+        "remote": [
+            "At Ricult, all our teams were distributed and we worked remotely. This allowed me to develop strong communication skills."
+        ],
+        "projects": [
+            "I heavily enjoy working on my own projects as well",
+            "I built readSyncPdf, a webapp that allows users to read pdfs and have their progress sync using mozillas pdf.js",
+            "I have also built a playlist sharing application written in react native that allowed me and my friends to share things with each other better",
+            "I worked on a chrome extension to customise and add a UI feature I wanted in my whatsapp web client"
+        ],
+        "oss": [
+            "There are a few oss projects I am involved in and enjoy using.",
+            "I am a contributor and user for openage, on open source age of empires clone which uses python and cpp to recreate and expand the AOE engine",
+            "I used react-pdf-highlighter once for my own project, and developed a pretty clear idea of its codebase and functionality, so I try to answer user questions for it on github"
+        ],
+        "end": "I hope you have a clear idea about my accomplishments and expertise. I would love to be able to, and am looking forwards to proceed with this opportunity at @company"
+    },
+    "be": {
+        "intro": "Hi, As a seasoned Software Engineer with over 3 years of diverse engineering experience, I am applying for the @position position at @company",
+        "desc": [
+            "I am currently a software engineer at an agri-tech startup, Ricult",
+            "While I am and have been a full stack engineer, I have always enjoyed and gravitated to the backend work",
+            "This is due to my interest in distributed systems and databases, and the high benchmarks for performance that backend development requires"
+        ],
+        "product": [
+            "I have plenty of experience and expertise in building backends for various product features",
+            "At Ricult, I built an analytics application on top of google maps to view more than 2 million farms across Pakistan and Thailand.",
+            "I worked on the backend and database for this project, and further scaled this to work for around 10gbs of data",
+            "I also developed the backend server for my own project, which synced users progress when they read or opened a pdf"
+        ],
+        "perf": [
+            "I fixed and heavily improved the performance of an important feature that was formatting and aggregating more than 2 million data rows",
+            "I developed one of our most complex features, a location based lookup that required us to develop clustering methods for farms across Pakistan and Thailand"
+        ],
+        "testing": [
+            "I have strong experience with backend testing and setup",
+            "I used pytest and setup our entire backend test suite",
+            "This was a large project where I designed our application and user setup, database rollbacks and test validation"
+        ],
+        "ci": [
+            "I have strong experience with CI/CD as I developed our CI system at Ricult",
+            "This was imperative to improving deployment speeds and reducing bugs in production, as it relied on test validation to allow commits"
+        ],
+        "remote": [
+            "At Ricult, all our teams were distributed and we worked remotely. This allowed me to develop strong communication skills."
+        ],
+        "projects": [
+            "I heavily enjoy working on my own projects as well",
+            "I built readSyncPdf, a webapp that allows users to read pdfs and have their progress sync using mozillas pdf.js",
+            "I also have experience working developing distirbuted systems in golang as I developed a load balancer, a blockchain miner and a key value server"
+        ],
+        "oss": [
+            "There are a few oss projects I am involved in and enjoy using.",
+            "I am a contributor and user for openage, on open source age of empires clone which uses python and cpp to recreate and expand the age of empires engine",
+            "I used react-pdf-highlighter once for my own project, and developed a pretty clear idea of its codebase and functionality, so I try to help out users on github"
+        ],
+        "end": "I hope you have a clear idea about my accomplishments and expertise. I would love to be able to, and am looking forwards to proceed with this opportunity at @company"
+    }
+    
 }
