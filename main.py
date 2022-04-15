@@ -26,17 +26,20 @@ def generate(keywords, template):
     desc = parse_format_keywords(template, ['desc']) 
     mid = parse_format_keywords(template, keywords)
     end = template['end'].strip('.') + '.'
-    covlet_gen = intro + '\n' + desc + '\n' + mid + '\n' + end
+    covlet_gen = intro + '\n\n' + desc + '\n\n' + mid + '\n\n' + end
     return covlet_gen
-
-def nested_generate(role, keywords, template):
-    return generate(keywords, template[role[0]])    
 
 def generate_covlet(role, keywords):
     template = read_template_file()
+    out_covlet = ''
     if role is not None:
-        return nested_generate(role, keywords, template)
-    return generate(keywords, template)
+        out_covlet = generate(keywords, template[role[0]])
+    else:
+        out_covlet = generate(keywords, template)
+    raw_sign = template['signature']
+    sign = raw_sign[0] + ",\n" + raw_sign[1]
+    return out_covlet + '\n\n' + sign
+    
 
 def generate_pdf(text, filename):
     pdf = FPDF(orientation='p', format='A4')
@@ -44,12 +47,13 @@ def generate_pdf(text, filename):
     pdf.add_page()
     pdf.set_font('Arial', '', 11)
     splitted = text.split('\n')
-
     for line in splitted:
+        if line == '':
+            pdf.ln()
+            continue
         lines = textwrap.wrap(line, 95)
         for wrap in lines:
             pdf.cell(0, 5, wrap, ln=1)
-        pdf.ln()
     
     pdf.output(filename, 'F')
 
@@ -89,19 +93,21 @@ if __name__ == '__main__':
         '--out', nargs=1, required=False, help='specify the output file name the generated pdf will use'
     )
     parser.add_argument(
-        '--company', nargs=1, required=False, help='specifies the company name to use to replace the @company variable in users '+\
+        '--company', nargs='*', required=False, help='specifies the company name to use to replace the @company variable in users '+\
         'template.json keyword entry'
     )
     parser.add_argument(
-        '--position', nargs=1, required=False, help='specifies the job name to use to replace the @job variable in users'+\
+        '--position', nargs='*', required=False, help='specifies the job name to use to replace the @job variable in users'+\
         'template.json keyword entry'
     )
     args = vars(parser.parse_args())
     # define covlet-gen specific vars
     cv_role = args.get('role')
     cv_keywords = args.get('keyword')
-    cv_company = args.get('company')[0]
-    cv_pos = args.get('position')[0]
+    company_list = args.get('company')
+    pos_list = args.get('position')
+    cv_company = ' '.join(company_list) if company_list else None
+    cv_pos = ' '.join(pos_list) if pos_list else None
 
     cv_generated = generate_covlet(cv_role,cv_keywords)
     if cv_generated is not None:
