@@ -1,18 +1,23 @@
 {
-    "intro": "I am an engineer. I do the code. I am applying to @company for the position @position",
-    "scripting": [
-        "made covlet-gen, a tool to automate generating specialized cover letters.",
-        "made a script to automate my dev environment using tmux and [vscode, vim (any editor of choice)]"
+    "intro": "Hi, As a seasoned Software Engineer with over 3 years of diverse engineering experience, I am applying for the @position position at @company",
+    "fe_product": [
+        "I have plenty of experience and expertise in building and hacking products",
+        "At Ricult, I built an analytics application on top of google maps to view more than 2 million farms across Pakistan and Thailand.",
+        "I also created a resource monitoring and maintainence dashboard that helped users observe and interact with their activity pipelines"
     ],
-    "end": "I hope you know I am an engineer. Looking forwards to working all your code",
-    "fe": {
-        "intro": "I like the front-end. I am an engineer. I have worked in all the javascripts",
-        "product": [
-            "made read-sync-pdf, a pdf reader web app using mozillas pdf.js that syncs your reading progress. Allowing you to read on any device."
-        ],
-        "complex": [
-            "worked on the performance and ux of a web app to allow it to scale and handle more than 2 million data rows."
-        ],
-        "end": "I hope you know I liked the front-end. Look forwards to working in all your javascripts"
-    }
+    "fe_perf": [
+        "I worked on the performance and ux of a time critical web app and made it scale and handle more than 2 million data rows",
+        "I fixed a feature that had to render more than 20000 farm images, bringing the fetching and rendering speed down to 4 seconds",
+        "I performed code analysis to identify and fix overlooked performance issues in our fetch services which were used in all our components."
+    ],
+    "fe_remote": [
+        "At Ricult, all our teams were distributed between multiple timezones and because of this I have developed strong communication skills."
+    ],
+    "fe_projects": [
+        "I heavily enjoy working on my own projects as well",
+        "I built readSyncPdf, a webapp that allows users to read pdfs and have their progress sync using mozillas pdf.js",
+        "I have also built a playlist sharing application written in react native that allowed me and my friends to share things with each other better",
+        "I worked on a chrome extension to customise and add a UI feature I wanted in my whatsapp web client"
+    ],
+    "end": "I hope you have a clear idea about my accomplishments and expertise. I would love to be able to, and am looking forwards to proceed with this opportunity at @company"
 }
