@@ -19,6 +19,9 @@ def parse_format_keywords(template, keywords):
     return out_para
 
 def generate(keywords, template):
+    if template.get('intro') is None or template.get('end') is None:
+        print("intro/end key not found. Intro and End entries are required to generate your cover letter")
+        return
     intro = template['intro']
     mid = parse_format_keywords(template, keywords)
     end = template['end']
@@ -98,18 +101,19 @@ if __name__ == '__main__':
     cv_pos = args.get('position')[0]
 
     cv_generated = generate_covlet(cv_role,cv_keywords)
-    repl_company = cv_generated.replace('@company', cv_company) if cv_company else cv_generated
-    cv_fmt = repl_company.replace('@position', cv_pos) if cv_pos else repl_company
+    if cv_generated is not None:
+        repl_company = cv_generated.replace('@company', cv_company) if cv_company else cv_generated
+        cv_fmt = repl_company.replace('@position', cv_pos) if cv_pos else repl_company
 
-    print('Your cover letter has been generated','\n\n',cv_fmt,
-    '\n','\n[C] - copy to clipboard', '\n[G] - generate as pdf')
+        print('Your cover letter has been generated','\n\n',cv_fmt,
+        '\n','\n[C] - copy to clipboard', '\n[G] - generate as pdf')
 
-    out_method = input()
-    if out_method == 'c' or out_method == 'C':
-        pyperclip.copy(cv_fmt)
-    if out_method == 'g' or out_method == 'G':
-        fname = args.get('out')[0]
-        if fname is None:
-            print("output name required")
-        generate_pdf(cv_fmt, 'output/'+fname)
+        out_method = input()
+        if out_method == 'c' or out_method == 'C':
+            pyperclip.copy(cv_fmt)
+        if out_method == 'g' or out_method == 'G':
+            fname = args.get('out')[0]
+            if fname is None:
+                print("output name required")
+            generate_pdf(cv_fmt, 'output/'+fname)
 
