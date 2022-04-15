@@ -34,7 +34,7 @@ def generate_covlet(role, keywords):
         return nested_generate(role, keywords, template)
     return generate(keywords, template)
 
-def text_to_pdf(text, filename):
+def generate_pdf(text, filename):
     pdf = FPDF(orientation='p', format='A4')
     pdf.set_margins(25,25)
     pdf.add_page()
@@ -79,16 +79,37 @@ if __name__ == '__main__':
         '--keyword', nargs='*', required=True, help='specify the keyword(s) to use. These in your template will be a list of sentences '+ \
         'demonstrating your achievements that match that keyword.'
         )
+    parser.add_argument(
+        '--out', nargs=1, required=False, help='specify the output file name the generated pdf will use'
+    )
+    parser.add_argument(
+        '--company', nargs=1, required=False, help='specifies the company name to use to replace the @company variable in users'+\
+        'template.json keyword entry'
+    )
+    parser.add_argument(
+        '--position', nargs=1, required=False, help='specifies the job name to use to replace the @job variable in users'+\
+        'template.json keyword entry'
+    )
     args = vars(parser.parse_args())
     # define covlet-gen specific vars
     cv_role = args.get('role')
     cv_keywords = args.get('keyword')
+    cv_company = args.get('company')[0]
+    cv_pos = args.get('position')[0]
+
     cv_generated = generate_covlet(cv_role,cv_keywords)
-    print('Your cover letter has been generated','\n\n',cv_generated,
+    repl_company = cv_generated.replace('@company', cv_company) if cv_company else cv_generated
+    cv_fmt = repl_company.replace('@position', cv_pos) if cv_pos else repl_company
+
+    print('Your cover letter has been generated','\n\n',cv_fmt,
     '\n','\n[C] - copy to clipboard', '\n[G] - generate as pdf')
+
     out_method = input()
     if out_method == 'c' or out_method == 'C':
-        pyperclip.copy(cv_generated)
+        pyperclip.copy(cv_fmt)
     if out_method == 'g' or out_method == 'G':
-        text_to_pdf(cv_generated, 'test.pdf')
+        fname = args.get('out')[0]
+        if fname is None:
+            print("output name required")
+        generate_pdf(cv_fmt, 'output/'+fname)
 

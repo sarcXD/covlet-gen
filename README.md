@@ -27,7 +27,7 @@ detection. You as the user can choose to use this and use the `--role` and `--ke
 to follow this. It is available to you. Otherwise, you can just mention a `--keyword` and it will  
 treat it as follows. (you will need to be following the correct format)  
 ```
-$ covlet-gen --keyword product
+$ python main.py --keyword product
 ```
 This expects the following template
 ```
@@ -38,3 +38,21 @@ This expects the following template
 }
 ```
 So basically no nesting.
+
+## job and company name replacements
+Json by default cant use or handle any variable names. So covlet-gen uses its own special characters for this.  
+This will allow you to specify the *company name* and the *job name* as a cli arg. If you have specified a line with  
+the keyword `@company` and/or `@job`, then they will be replaced in the output file.  
+Example:
+```
+{
+    "scripting": ["I am applying to @company for the job @job and this is my application"]
+}
+```
+you can then replace the `@company` and `@job` in this via the following cli args:
+```
+$ python main.py --keyword scripting --company test-company --job test-job
+                        ^ this is just to select the scripting template
+```
+Your output string will then look like this.  
+I am applying to *test-company* for the job *test-job* and this is my application

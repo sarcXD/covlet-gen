@@ -1,5 +1,5 @@
 {
-    "intro": "I am an engineer. I do the code.",
+    "intro": "I am an engineer. I do the code. I am applying to @company for the position @position",
     "scripting": [
         "made covlet-gen, a tool to automate generating specialized cover letters.",
         "made a script to automate my dev environment using tmux and [vscode, vim (any editor of choice)]"
