@@ -124,5 +124,5 @@ if __name__ == '__main__':
             fname = args.get('out')[0]
             if fname is None:
                 print("output name required")
-            generate_pdf(cv_fmt, 'output/'+fname)
+            generate_pdf(cv_fmt, 'output/'+fname+'.pdf')
 
