@@ -25,6 +25,8 @@ or just generate a pdf from.
 This needs a few tools, specifically for pdf file generation:
 - fpdf==1.7.2 # pdf generation
 - pyperclip==1.8.2 # copy to clipboard library (just makes multiplatform handling hassle free)
+
+
 **OR**  
 just do `pip install -r requirements.txt`
 ## Usage and Description
