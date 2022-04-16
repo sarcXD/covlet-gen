@@ -6,6 +6,7 @@ I'm a software engineer, a full stack engineer to be exact, and as such there ar
 2. Full stack engineer
 3. Frontend engineer
 4. Backend engineer
+
 For each job, there is a different set of achievements they are looking for in a candidate, like:
 - Product building
 - Performance
@@ -13,6 +14,7 @@ For each job, there is a different set of achievements they are looking for in a
 - Remote
 - Sideprojects
 - Initiative
+
 You get the idea. As such my cover letters need to be changed rather frequently, and I don't do that, I just reuse them  
 knowing that this probably could be much better. Sometimes, I just dont bother applying, and when I do it takes so much  
 more effort. So I built this.
