@@ -1,3 +1,32 @@
+# covlet-gen
+A tool to generate more specialized cover letters, easily.  
+## background
+I'm a software engineer, a full stack engineer to be exact, and as such there are around 4 types of jobs I apply to.  
+1. Software Engineer
+2. Full stack engineer
+3. Frontend engineer
+4. Backend engineer
+For each job, there is a different set of achievements they are looking for in a candidate, like:
+- Product building
+- Performance
+- Open source work
+- Remote
+- Sideprojects
+- Initiative
+You get the idea. As such my cover letters need to be changed rather frequently, and I don't do that, I just reuse them  
+knowing that this probably could be much better. Sometimes, I just dont bother applying, and when I do it takes so much  
+more effort. So I built this.
+Best thing, 1 command line command, with multiple arguments, and it generates a cover letter that I can copy to clipboard,  
+or just generate a pdf from.
+## Requirements
+- python 3.10.2
+This needs a few tools, specifically for pdf file generation:
+- fpdf==1.7.2 # pdf generation
+- pyperclip==1.8.2 # copy to clipboard library (just makes multiplatform handling hassle free)
+**OR**
+just do
+`pip install -r requirements.txt`
+## Usage and Description
 The base format is designed as follows
 ```
 {
