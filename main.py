@@ -73,7 +73,7 @@ def check_data_store(data, company, pos=None):
             'dupl': True,
             'ts': ts
         }
-    return 0
+    return {'dupl': False}
 
 
 def append_data_store(ds, company, pos=None):
@@ -121,9 +121,6 @@ def main():
     parser.add_argument(
         '--keyword', nargs='*', required=False, help='specify the keyword(s) to use. These in your template will be a list of sentences ' +
         'demonstrating your achievements that match that keyword.'
-    )
-    parser.add_argument(
-        '--out', nargs=1, required=False, help='specify the output file name the generated pdf will use'
     )
     parser.add_argument(
         '--company', nargs='*', required=False, help='specifies the company name to use to replace the @company variable in users ' +
@@ -178,12 +175,12 @@ def main():
             if out_method == 'c' or out_method == 'C':
                 pyperclip.copy(cv_fmt)
             if out_method == 'g' or out_method == 'G':
-                fname = args.get('out')[0]
+                fname = '-'.join(company_list) if company_list else None
                 if fname is None:
                     print("output name required")
                 if not path.exists('output/'):
                     os.mkdir('output')
-                generate_pdf(cv_fmt, 'output/'+fname+'.pdf')
+                generate_pdf(cv_fmt, 'output/Cover-Letter-'+fname+'.pdf')
             dt = datetime.now()
             append_data_store(data_store, cv_company, cv_pos)
 

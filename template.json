@@ -107,6 +107,15 @@
             "I am a contributor and user for openage, an open source age of empires clone which uses python and cpp to recreate and expand the AOE engine",
             "I used react-pdf-highlighter once for my own project, and developed a pretty clear idea of its codebase and functionality, so I try to answer user questions for it on github"
         ],
+        "testing": [
+            "I have a strong experience with backend testing and setup",
+            "I used pytest and setup our entire backend test suite",
+            "This was a large project where I designed our application and user setup, database rollbacks and test validation"
+        ],
+        "ci": [
+            "I have a strong experience with CI/CD as I developed our CI system at Ricult",
+            "This was imperative to improving deployment speeds and reducing bugs in production, as it relied on test validation to allow commits"
+        ],
         "end": "I hope you have a clear idea about my accomplishments and expertise. I would love to be able to, and am looking forwards to proceed with this opportunity at @company"
     },
     "signature": ["Sincerely","Talha Aamir"]
