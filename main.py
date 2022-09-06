@@ -6,6 +6,7 @@ import textwrap
 import os
 from os import path
 from datetime import datetime
+import sys
 
 
 def read_template_file():
@@ -80,9 +81,10 @@ def append_data_store(ds, company, pos=None):
     dt = datetime.now()
     if company in ds:
         ds[company][pos] = dt.isoformat()
-    ds[company] = {
-        pos: dt.isoformat()
-    }
+    else:
+        ds[company] = {
+            pos: dt.isoformat()
+        }
     json_obj = json.dumps(ds, indent=4)
     with open("store.json", "w") as outfile:
         outfile.write(json_obj)
@@ -91,16 +93,7 @@ def append_data_store(ds, company, pos=None):
 
 def main():
     '''
-    Parse CMD arguments. Arguments format
-    main.py --keyword product
-    ^ This will use a top level template as follows:
-    {
-        intro: [],
-        desc: [],
-        product: [],
-        end: []
-    }
-
+    Parse CMD arguments. Arguments format:
     main.py --role fe --keyword product complex
     ^ This will use a nested structure as follows:
     {
@@ -115,39 +108,39 @@ def main():
     '''
     parser = argparse.ArgumentParser(
         prog='covlet-gen',
-        description='extract specialized cover letters faster')
-    parser.add_argument('--role', nargs=1, required=False,
+        description='generate specialized cover letters faster')
+    parser.add_argument('--role', nargs=1, required=True,
                         help='specify the role of the cover letter as defined in your template.json')
     parser.add_argument(
-        '--keyword', nargs='*', required=False, help='specify the keyword(s) to use. These in your template will be a list of sentences ' +
+        '--keyword', nargs='*', required=True, help='specify the keyword(s) to use. These in your template will be a list of sentences ' +
         'demonstrating your achievements that match that keyword.'
     )
     parser.add_argument(
-        '--company', nargs='*', required=False, help='specifies the company name to use to replace the @company variable in users ' +
+        '--company', nargs='*', required=True, help='specifies the company name to use to replace the @company variable in users ' +
         'template.json keyword entry'
     )
     parser.add_argument(
-        '--position', nargs='*', required=False, help='specifies the job name to use to replace the @job variable in users' +
+        '--position', nargs='*', required=True, help='specifies the job name to use to replace the @job variable in users' +
         'template.json keyword entry'
-    )
-    parser.add_argument(
-        '--search', action='store_true', required=False, help='Allows user to search and check if they have already created a cover letter for the ' +
-        'company and position entered'
     )
     args = vars(parser.parse_args())
+
+    if len(sys.argv) < 2:
+        parser.print_help()
     # define covlet-gen specific vars
     cv_role = args.get('role')
     cv_keywords = args.get('keyword')
     company_list = args.get('company')
     pos_list = args.get('position')
-    cv_search = args.get('search')
 
     cv_company = ' '.join(company_list) if company_list else None
     cv_pos = ' '.join(pos_list) if pos_list else None
 
     app_status = {'dupl': False}
     data_store = {}
-    if cv_company and path.exists('store.json'):
+
+    f_size = os.path.getsize("store.json")
+    if cv_company and path.exists("store.json") and f_size > 0:
         with open('store.json') as f:
             data_store = json.load(f)
             app_status = check_data_store(data_store, cv_company, cv_pos)
@@ -181,8 +174,8 @@ def main():
                 if not path.exists('output/'):
                     os.mkdir('output')
                 generate_pdf(cv_fmt, 'output/Cover-Letter-'+fname+'.pdf')
-            dt = datetime.now()
-            append_data_store(data_store, cv_company, cv_pos)
+            if cv_company:
+                append_data_store(data_store, cv_company, cv_pos)
 
 
 if __name__ == '__main__':

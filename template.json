@@ -85,8 +85,7 @@
             "I have plenty of experience and expertise in building and hacking products",
             "At Ricult, I built an analytics application on top of google maps to view more than 2 million farms across Pakistan and Thailand.",
             "The entire thing was built from scratch, as I architected each feature and functionality, perhaps the project that boosted my career and learning the most",
-            "I also created a resource monitoring and maintenance dashboard at Ricult that helped our users with their process pipelines",
-            "This was for mills and factories in Thailand, and it drastically helped streamline their management processes"
+            "I also created a resource monitoring and maintenance dashboard at Ricult that helped our users with their process pipelines"
         ],
         "perf": [
             "I worked on the performance and ux of a time critical web app and made it scale and handle more than 2 million data rows",
