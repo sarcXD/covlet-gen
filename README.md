@@ -69,15 +69,13 @@ Since you might be confused, this example should help illustrate the format you 
 }
 ```
 
-This is just a layer of abstraction to make sentence picking easier. There is no automatic  
-detection. You as the user can choose to use this and use the `--role` and `--keyword` option  
-to follow this. It is available to you.
+This is just a layer of abstraction to make sentence picking easier. There is no automatic detection.
+You as the user can choose to use this and use the `--role` and `--keyword` option to follow this. It is available to you.
 
 ## job and company name replacements
 
 Json by default cant use or handle any variable names. So covlet-gen uses its own special characters for this.  
-This will allow you to specify the _company name_ and the _position name_ as a cli arg. If you have specified a line with  
-the keyword `@company` and/or `@position`, then they will be replaced in the output file.  
+This will allow you to specify the _company name_ and the _position name_ as a cli arg. If you have specified a line with the keyword `@company` and/or `@position`, then they will be replaced in the output file.  
 Example:
 
 ```
@@ -105,8 +103,8 @@ or output to pdf. The files will be output to the output folder
 **Required:** The flag `--out`, followed by the cover letter file name you want like `cover-letter-test`.  
 This will generate a file called **cover-letter-test.pdf** in the project **output** folder.
 
-## Cover letter logs
+## Detecting for an already generated role
 
-covlet-gen makes a local log of the company and role you generated a cover letter for along with a timestamp of when you
-last applied to the company for that role. So when you next apply for that role, it'll put up a prompt letting you know you
-might be applying again.
+One of the most valuable feature for me is when covlet-gen lets me know if I have already applied to a company for that specific role before.  
+It does so by making a local log of the company and role you generated a cover letter for along with a timestamp of when you
+last applied to the company for that role. So when you next apply for that role. Then next time you generate a cover letter it'll put up a prompt letting you know you might be re-applying for something.
