@@ -1,4 +1,3 @@
-*.pdf
 output/
 store.json
 .vscode
