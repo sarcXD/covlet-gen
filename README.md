@@ -77,7 +77,7 @@ If I use the following commands
 `python main.py --role fe --keyword product perf --company EXAMPLE_company --position EXAMPLE Position` 
 for the role fe in my template to use the achievements under product and perf
   with the defined company and position. It generates the following
-  (pdf)[github.com/sarcxd/covlet-gen/Cover-Letter-EXAMPLE_company.pdf]
+  [pdf](https://github.com/sarcXD/covlet-gen/blob/main/Cover-Letter-EXAMPLE_company.pdf)
 ## job and company name replacements
 
 Json by default cant use or handle any variable names. So covlet-gen uses its own special characters for this.  
